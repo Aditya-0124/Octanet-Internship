@@ -1,0 +1,229 @@
+/* Theme Variables */
+:root {
+    --primary-color: #ff4500;
+    --secondary-color: #555;
+    --background-color: #f4f4f4;
+    --text-color: #000;
+    --light-text-color: #fff;
+    --font-family: 'Arial', sans-serif;
+    --header-padding: 1rem 2rem;
+    --section-padding: 3rem 2rem;
+    --footer-padding: 1rem 2rem;
+    --border-radius: 10px;
+    --transition-duration: 0.3s;
+    --hover-color: #e63900;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--header-padding);
+    background-color: var(--text-color);
+    color: var(--light-text-color);
+    box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+header .logo img {
+    height: 40px;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+header nav a {
+    color: var(--light-text-color);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color var(--transition-duration), transform var(--transition-duration);
+}
+
+header nav a:hover {
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.hero {
+    position: relative;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--light-text-color);
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay for better text readability */
+    z-index: 1;
+}
+
+.hero .hero-content {
+    z-index: 2;
+    max-width: 600px;
+    padding: 1rem;
+}
+
+.hero .hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.hero .hero-content p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.hero .shop-now {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    transition: background-color var(--transition-duration), transform var(--transition-duration);
+}
+
+.hero .shop-now:hover {
+    background-color: var(--hover-color);
+    transform: scale(1.05);
+}
+
+.featured-shoes {
+    display: flex;
+    flex-direction: column; /* Align elements in a column */
+    justify-content: center;
+    align-items: center;
+    padding: var(--section-padding);
+    background-color: #fff;
+    box-shadow: 0 2px 5px var(--shadow-color);
+    border-radius: var(--border-radius);
+    margin: 2rem 1rem;
+}
+
+.featured-shoes h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    width: 100%;
+}
+
+.featured-shoes .shoe-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px; /* Set a max-width to prevent stretching */
+    margin: 0 auto; /* Center horizontally */
+}
+
+.featured-shoes .shoe {
+    position: relative;
+    width: 100%;
+    height: 400px; /* Adjusted height for better image fit */
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    transition: transform var(--transition-duration), box-shadow var(--transition-duration);
+    cursor: pointer;
+    transform-style: preserve-3d; /* For 3D effects */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #fff; /* Background color to ensure text visibility */
+    box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+.featured-shoes .shoe:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px var(--shadow-color);
+}
+
+.featured-shoes .shoe img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem; /* Space between image and text */
+}
+
+.featured-shoes .shoe h3 {
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+    text-align: center;
+}
+
+.featured-shoes .shoe p {
+    font-size: 1rem;
+    color: var(--secondary-color);
+    text-align: center;
+    margin: 0.5rem 0;
+}
+
+footer {
+    text-align: center;
+    padding: var(--footer-padding);
+    background-color: var(--text-color);
+    color: var(--light-text-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero {
+        text-align: center;
+        position: static;
+    }
+
+    .hero::before {
+        display: none;
+    }
+
+    .hero .hero-content {
+        margin-bottom: 2rem;
+    }
+
+    .hero .hero-bg {
+        display: none;
+    }
+
+    .featured-shoes .shoe {
+        height: auto; /* Allow height to adjust automatically */
+    }
+}
